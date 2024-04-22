@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['peminjam', 'pegawai tu', 'kepala bagian'])->default('peminjam');
+            // peminjam => peminjam, pegawaitu => pegawai tu, kabag => kabag
             $table->rememberToken();
             $table->timestamps();
         });
