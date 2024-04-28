@@ -22,16 +22,35 @@
                 <div>Home</div>
             </a>
         </li>
-        {{-- @if (Auth()->user()->hasRole('pegawaitu'))
-            
-        @endif --}}
+        @if (Auth()->user()->hasRole('pegawai tu'))
 
         <li class="menu-item">
             <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Users</div>
+                <div>Aset</div>
             </a>
         </li>
+         <li class="menu-item ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Aset</div>
+            </a>
+        
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">List Asset</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Asset Dipinjam</div>
+                    </a>
+                </li>
+            </ul>
+        </li>   
+        @endif
+
         <!-- Layouts -->
         <li class="menu-item ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
