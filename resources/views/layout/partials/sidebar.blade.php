@@ -26,28 +26,34 @@
         {{--!  user pegawai TU !--}}
         <li class="menu-item {{ (Request::RouteIs('aset.*')) ? 'active' : '' }}">
             <a href="{{ route('aset.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Manajemen Aset</div>
+                <i class="menu-icon tf-icons bx bx-library"></i>
+                <div>Data Aset</div>
             </a>
         </li>
          <li class="menu-item ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Aset</div>
+                <i class="menu-icon tf-icons bx bx-transfer"></i>
+                <div>Peminjaman & pengembalian Aset</div>
             </a>
         
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="layouts-without-menu.html" class="menu-link">
-                        <div data-i18n="Without menu">List Asset</div>
+                        <div>Peminjaman</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="layouts-without-navbar.html" class="menu-link">
-                        <div data-i18n="Without navbar">Asset Dipinjam</div>
+                        <div>Pengembalian</div>
                     </a>
                 </li>
             </ul>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('aset.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-envelope"></i>
+                <div>Surat Sanksi</div>
+            </a>
         </li>
         @elseif (Auth()->user()->hasRole('peminjam'))
         {{--! user peminjam !--}}
