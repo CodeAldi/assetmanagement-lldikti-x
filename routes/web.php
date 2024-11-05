@@ -23,9 +23,9 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::controller(DashboardController::class)->group(function(){
-    Route::get('/dashboard/home','index')->name('home');
+    Route::get('/dashboard/home','index')->middleware('auth')->name('home');
 });
 
-Route::controller(AsetController::class)->middleware(['auth'])->group(function(){
+Route::controller(AsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('/dashboard/aset','index')->name('aset.index');
 });
