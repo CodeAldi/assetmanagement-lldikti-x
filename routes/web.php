@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,9 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::controller(DashboardController::class)->group(function(){
-    Route::get('/dashboard/home','index');
+    Route::get('/dashboard/home','index')->name('home');
+});
+
+Route::controller(AsetController::class)->middleware(['auth'])->group(function(){
+    Route::get('/dashboard/aset','index')->name('aset.index');
 });

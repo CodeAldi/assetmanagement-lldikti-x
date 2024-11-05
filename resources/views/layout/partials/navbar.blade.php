@@ -10,7 +10,7 @@
         <!-- Search -->
         <div class="navbar-nav align-items-center">
             <div class="nav-item d-flex align-items-center">
-                <h6 class="mt-3">login sebagai : {{ Auth()->user()->role }}</h6>
+                <h6 class="mt-3">login sebagai : <span class="text-uppercase">{{ Auth()->user()->role }}</span></h6>
             </div>
         </div>
         <!-- /Search -->
@@ -63,7 +63,7 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="auth-login-basic.html">
+                        <a class="dropdown-item" href="{{ route('logout') }}">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                         </a>

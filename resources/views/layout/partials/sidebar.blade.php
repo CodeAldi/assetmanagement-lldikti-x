@@ -16,18 +16,18 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
-            <a href="#" class="menu-link">
+        <li class="menu-item {{ (Request::RouteIs('home')) ? 'active' : '' }}">
+            <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div>Home</div>
             </a>
         </li>
         @if (Auth()->user()->hasRole('pegawai tu'))
-
-        <li class="menu-item">
-            <a href="#" class="menu-link">
+        {{--!  user pegawai TU !--}}
+        <li class="menu-item {{ (Request::RouteIs('aset.*')) ? 'active' : '' }}">
+            <a href="{{ route('aset.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Aset</div>
+                <div>Manajemen Aset</div>
             </a>
         </li>
          <li class="menu-item ">
@@ -48,11 +48,27 @@
                     </a>
                 </li>
             </ul>
-        </li>   
+        </li>
+        @elseif (Auth()->user()->hasRole('peminjam'))
+        {{--! user peminjam !--}}
+        <li class="menu-item">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div>Peminjaman Aset</div>
+            </a>
+        </li>
+        @elseif (Auth()->user()->hasRole('kepala bagian'))
+        {{--! user kepala bagian !--}}
+        <li class="menu-item">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div>Konfirmasi Peminjaman Aset</div>
+            </a>
+        </li>
         @endif
 
         <!-- Layouts -->
-        <li class="menu-item ">
+        {{-- <li class="menu-item ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Layouts</div>
@@ -89,7 +105,7 @@
 
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>
-        </li>
+        </li> --}}
         
     </ul>
 </aside>
