@@ -28,4 +28,5 @@ Route::controller(DashboardController::class)->group(function(){
 
 Route::controller(AsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('/dashboard/aset','index')->name('aset.index');
+    Route::post('/dashboard/aset/store','store')->name('aset.store');
 });

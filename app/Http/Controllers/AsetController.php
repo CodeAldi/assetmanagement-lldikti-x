@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\r;
+use App\Models\Aset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AsetController extends Controller
 {
@@ -12,7 +13,8 @@ class AsetController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemenAset.index');
+        $aset = Aset::all();
+        return view('dashboard.manajemenAset.index')->with('aset',$aset);
     }
 
     /**
@@ -28,38 +30,19 @@ class AsetController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(r $r)
-    {
-        //
-    }
+            'fotoaset' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(r $r)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, r $r)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(r $r)
-    {
-        //
+        ]);
+        if ($request->hasFile('fotoaset')) {
+            $aset = new Aset();
+            $aset->nama = $request->namaAset;
+            $aset->jumlah = $request->jumlahAset;
+            $path = Storage::putFile('fotoawal',$request->file('fotoaset'),'public');
+            $aset->foto = $path;
+            $aset->save();
+        }
+        return back();
     }
 }

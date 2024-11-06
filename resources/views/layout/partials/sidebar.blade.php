@@ -38,19 +38,19 @@
         
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div>Peminjaman</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div>Pengembalian</div>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="menu-item">
-            <a href="{{ route('aset.index') }}" class="menu-link">
+            <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-envelope"></i>
                 <div>Surat Sanksi</div>
             </a>
