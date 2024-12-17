@@ -39,6 +39,7 @@ class AsetController extends Controller
             $aset = new Aset();
             $aset->nama = $request->namaAset;
             $aset->jumlah = $request->jumlahAset;
+            $aset->kondisi = "sangat baik";
             $path = Storage::putFile('fotoawal',$request->file('fotoaset'),'public');
             $aset->foto = $path;
             $aset->save();
