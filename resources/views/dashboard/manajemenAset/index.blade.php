@@ -53,10 +53,13 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i
+                                    <button class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalShow{{ $item->index }}" data-><i
+                                            class="bx bx-show-alt me-1"></i>
+                                        Lihat</button>
+                                    <a class="dropdown-item btn btn-warning text-white" ><i
                                             class="bx bx-edit-alt me-1"></i>
                                         Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                    <a class="dropdown-item btn btn-danger text-white" ><i class="bx bx-trash me-1"></i>
                                         Delete</a>
                                 </div>
                             </div>
@@ -64,7 +67,9 @@
                     </tr>
                         
                     @empty
-                        
+                    <tr>
+                        <td colspan="4" class="bg-warning text-white text-center">data masih kosong</td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -142,7 +147,54 @@
         </form>
     </div>
 </div>
+{{-- modal untuk show --}}
+@forelse ($aset as $item)
+<div class="modal fade" id="modalShow{{ $item->index }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCreateTitle">Detail Data Aset</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" id="namashow" class="form-control" name="namaAset"
+                            placeholder="{{ $item->nama }}" readonly/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="jumlah" class="form-label">jumlah aset</label>
+                        <input type="number" id="jumlahshow" class="form-control" name="jumlahAset"
+                            placeholder="{{ $item->jumlah }}" readonly />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="fotoaset" class="form-label">foto aset</label>
+                        <img src="{{ asset($item->foto) }}" alt="" class="img-thumbnail">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+@empty
+    
+@endforelse
+{{-- modal untuk edit --}}
+
 @endsection
+@if (count($aset))
 @push('page-js')
 <script>
     let table = new DataTable('#dataAset', {
@@ -150,3 +202,5 @@
         });
 </script>
 @endpush
+    
+@endif
