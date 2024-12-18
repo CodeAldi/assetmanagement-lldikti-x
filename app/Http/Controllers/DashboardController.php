@@ -14,6 +14,6 @@ class DashboardController extends Controller
         $menungguValidasiTU = AjukanPeminjamanAset::where('status',"diajukan")->get();
         $kabagsetuju = AjukanPeminjamanAset::where('status',"disetujui")->get();
         $ditolak = AjukanPeminjamanAset::where('status','like','%ditolak%')->get();
-        return view('dashboard.home')->with('totalaset',$totalaset)->with('menungguKabag',$menungguPersetujuanKabag)->with('menungguTu',$menungguValidasiTU)->with('kabagsetuju',$kabagsetuju)->with('ditolak',$ditolak);
+        return view('dashboard.home')->with('aset',$totalaset)->with('totalaset',$totalaset)->with('menungguKabag',$menungguPersetujuanKabag)->with('menungguTu',$menungguValidasiTU)->with('kabagsetuju',$kabagsetuju)->with('ditolak',$ditolak);
     }
 }
