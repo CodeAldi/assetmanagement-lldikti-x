@@ -30,15 +30,15 @@
                 <div>Data Aset</div>
             </a>
         </li>
-         <li class="menu-item ">
+         <li class="menu-item {{ (Request::RouteIs('manajemenPeminjamanAset.*')) ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-transfer"></i>
                 <div>Peminjaman & pengembalian Aset</div>
             </a>
         
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ (Request::RouteIs('manajemenPeminjamanAset.*')) ? 'active' : '' }}">
+                    <a href="{{ route('manajemenPeminjamanAset.index') }}" class="menu-link">
                         <div>Peminjaman</div>
                     </a>
                 </li>
@@ -57,10 +57,16 @@
         </li>
         @elseif (Auth()->user()->hasRole('peminjam'))
         {{--! user peminjam !--}}
+        <li class="menu-item {{ (Request::RouteIs('ajukan.peminjaman*')) ? 'active' : '' }}">
+            <a href="{{ route('ajukan.peminjaman') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div>Ajukan Peminjaman Aset</div>
+            </a>
+        </li>
         <li class="menu-item">
             <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Peminjaman Aset</div>
+                <div>Ajukan Pengembalian Aset</div>
             </a>
         </li>
         @elseif (Auth()->user()->hasRole('kepala bagian'))

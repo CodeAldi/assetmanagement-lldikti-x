@@ -10,15 +10,6 @@
             Dicta accusantium exercitationem amet aliquam tenetur eveniet illo saepe libero, maiores id recusandae!</p>
     </div>
 </div>
-<div class="row">
-    <div class="col">
-        <div class="card mt-2">
-            <div class="card-body">
-                <h5 class="card-title">hello</h5>
-            </div>
-        </div>
-    </div>
-</div>
 @elseif (Auth()->user()->hasRole('peminjam'))
 <div class="card bg-primary text-white shadow">
     <h5 class="card-header text-white">Halo peminjam, selamat datang di Sistem Manajemen Aset !</h5>
