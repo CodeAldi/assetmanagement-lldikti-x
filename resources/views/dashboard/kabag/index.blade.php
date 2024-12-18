@@ -41,13 +41,14 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @forelse ($dataPeminjamanAset as $item)
+                    @forelse ($menungguKabag as $item)
                     <tr>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->aset->nama }}</td>
                         <td class="text-center">{{ $item->jumlah }}</td>
                         <td>{{ $item->alasan }}</td>
-                        <td class="text-center"><span class="badge bg-label-primary me-1">{{ $item->status }}</span></td>
+                        <td class="text-center"><span class="badge bg-label-primary me-1">{{ $item->status }}</span>
+                        </td>
                         <td class="text-center">{{ $item->tanggal_mulai_pinjam }}</td>
                         <td class="text-center">{{ $item->lama_pinjam }}</td>
                         <td class="text-center">
@@ -57,15 +58,18 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <form action="{{ route('manajemenPeminjamanAset.teruskan',$item->id) }}" method="post">
+                                    <form action="{{ route('kabag.setuju',$item->id) }}"
+                                        method="post">
                                         @csrf
                                         <button type="submit" class="dropdown-item btn btn-success mb-1 text-white"><i
-                                            class="bx bx-check-circle me-1"></i>
-                                            Teruskan kepada Kabag</button>
+                                                class="bx bx-check-circle me-1"></i>
+                                            Setujui</button>
                                     </form>
-                                    <form action="{{ route('manajemenPeminjamanAset.ditolak',$item->id) }}" method="post">
+                                    <form action="{{ route('kabag.tolak',$item->id) }}"
+                                        method="post">
                                         @csrf
-                                        <button type="submit" class="dropdown-item btn btn-danger mb-1 text-white"><i class="bx bx-x-circle me-1"></i>
+                                        <button type="submit" class="dropdown-item btn btn-danger mb-1 text-white"><i
+                                                class="bx bx-x-circle me-1"></i>
                                             Tolak</button>
                                     </form>
                                 </div>
@@ -139,7 +143,7 @@
 </div>
 
 @endsection
-@if (count($dataPeminjamanAset))
+@if (count($menungguKabag))
 @push('page-js')
 <script>
     let table = new DataTable('#dataAset', {

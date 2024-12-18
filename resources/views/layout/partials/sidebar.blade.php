@@ -71,8 +71,8 @@
         </li>
         @elseif (Auth()->user()->hasRole('kepala bagian'))
         {{--! user kepala bagian !--}}
-        <li class="menu-item">
-            <a href="#" class="menu-link">
+        <li class="menu-item {{ (Request::RouteIs('kabag.*')) ? 'active' : '' }}" >
+            <a href="{{ route('kabag.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div>Konfirmasi Peminjaman Aset</div>
             </a>

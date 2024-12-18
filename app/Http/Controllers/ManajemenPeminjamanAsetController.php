@@ -13,9 +13,22 @@ class ManajemenPeminjamanAsetController extends Controller
      */
     public function index()
     {
-        $dataPeminjamanAset = AjukanPeminjamanAset::where('status','mengajukan')->get();
-        // dd($dataPeminjamanAset[0]->user->name);
+        $dataPeminjamanAset = AjukanPeminjamanAset::get();
+        // dd($dataPeminjamanAset);
         return view('dashboard.manajemenPeminjamanAset.index')->with('dataPeminjamanAset',$dataPeminjamanAset);
+    }
+
+    public function teruskanKabag($id){
+        $pengajuan = AjukanPeminjamanAset::find($id);
+        $pengajuan->status = 'menunggu konfirmasi Kabag';
+        $pengajuan->save();
+        return back();
+    }
+    function tolak($id){
+        $pengajuan = AjukanPeminjamanAset::find($id);
+        $pengajuan->status = 'ditolak TU';
+        $pengajuan->save();
+        return back();
     }
 
     /**
