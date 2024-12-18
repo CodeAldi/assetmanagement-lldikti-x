@@ -53,7 +53,7 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <button class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalShow{{ $item->index }}" data-><i
+                                    <button class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalShow{{ $item->id }}" data-><i
                                             class="bx bx-show-alt me-1"></i>
                                         Lihat</button>
                                     <a class="dropdown-item btn btn-warning text-white" ><i
@@ -149,7 +149,7 @@
 </div>
 {{-- modal untuk show --}}
 @forelse ($aset as $item)
-<div class="modal fade" id="modalShow{{ $item->index }}" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modalShow{{ $item->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
