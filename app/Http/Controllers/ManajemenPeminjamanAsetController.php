@@ -30,6 +30,16 @@ class ManajemenPeminjamanAsetController extends Controller
         $pengajuan->save();
         return back();
     }
+    function indexpengembalian() {
+        $dataPeminjamanAset = AjukanPeminjamanAset::get();
+        return view('dashboard.manajemenPeminjamanAset.pengembalian')->with('dataPeminjamanAset', $dataPeminjamanAset);
+    }
+    function konfirmasipengembalian($id) {
+        $pengajuan = AjukanPeminjamanAset::find($id);
+        $pengajuan->status = 'telah dikembalikan';
+        $pengajuan->save();
+        return back();
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjukanPeminjamanAsetController;
+use App\Http\Controllers\AjukanPengembalianController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -38,11 +39,17 @@ Route::controller(ManajemenPeminjamanAsetController::class)->middleware(['auth',
     Route::get('dashboard/manajemen-peminjaman/index','index')->name('manajemenPeminjamanAset.index');
     Route::post('dashboard/manajemen-peminjaman/{id}/teruskan','teruskanKabag')->name('manajemenPeminjamanAset.teruskan');
     Route::post('dashboard/manajemen-peminjaman/{id}/ditolak','tolak')->name('manajemenPeminjamanAset.ditolak');
+    Route::get('dashboard/manajemen-pengembalian/index', 'indexpengembalian')->name('manajemenPengembalian.index');
+    Route::post('dashboard/manajemen-pengembalian/{id}/konfirmasipengembalian', 'konfirmasipengembalian')->name('manajemenPengembalian.konfirmasipengembalian');
 });
 
 Route::controller(AjukanPeminjamanAsetController::class)->middleware(['auth','role:peminjam'])->group(function(){
     Route::get('dashboard/ajukan/peminjaman','index')->name('ajukan.peminjaman');
     route::post('dashboard/ajukan/peminjaman/store','store')->name('ajukan.peminjaman.store');
+});
+Route::controller(AjukanPengembalianController::class)->middleware(['auth','role:peminjam'])->group(function(){
+    Route::get('dashboard/ajukan/pengembalian/index','index')->name('ajukan.pengembalian');
+    route::post('dashboard/ajukan/pengembalian/{id}/store', 'kembalikan')->name('ajukan.pengembalian.pengajuan');
 });
 
 Route::controller(PersetujuanKabagController::class)->middleware(['auth','role:kepala bagian'])->group(function(){

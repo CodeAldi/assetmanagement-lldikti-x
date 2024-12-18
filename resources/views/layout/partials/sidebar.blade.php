@@ -30,7 +30,7 @@
                 <div>Data Aset</div>
             </a>
         </li>
-         <li class="menu-item {{ (Request::RouteIs('manajemenPeminjamanAset.*')) ? 'active open' : '' }}">
+         <li class="menu-item {{ (Request::RouteIs('manajemen*')) ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-transfer"></i>
                 <div>Peminjaman & pengembalian Aset</div>
@@ -42,8 +42,8 @@
                         <div>Peminjaman</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ (Request::RouteIs('manajemenPengembalian.*')) ? 'active' : '' }}">
+                    <a href="{{ route('manajemenPengembalian.index') }}" class="menu-link">
                         <div>Pengembalian</div>
                     </a>
                 </li>
@@ -59,13 +59,13 @@
         {{--! user peminjam !--}}
         <li class="menu-item {{ (Request::RouteIs('ajukan.peminjaman*')) ? 'active' : '' }}">
             <a href="{{ route('ajukan.peminjaman') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-up-arrow-circle"></i>
                 <div>Ajukan Peminjaman Aset</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <li class="menu-item {{ (Request::RouteIs('ajukan.pengembalian*')) ? 'active' : '' }}">
+            <a href="{{ route('ajukan.pengembalian') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-down-arrow-circle"></i>
                 <div>Ajukan Pengembalian Aset</div>
             </a>
         </li>
