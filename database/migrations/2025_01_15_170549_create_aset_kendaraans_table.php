@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aset', function (Blueprint $table) {
+        Schema::create('aset_kendaraan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('deskripsi');
-            $table->integer('jumlah');
-            $table->string('kondisi');
-            $table->string('foto');
+            $table->foreignId('aset_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('kerusakan');
+            $table->integer('usia');
+            $table->integer('jarak_tempuh');
+            $table->integer('biaya_perawatan');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aset');
+        Schema::dropIfExists('aset_kendaraan');
     }
 };

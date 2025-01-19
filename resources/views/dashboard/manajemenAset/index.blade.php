@@ -112,9 +112,65 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
+                        <label for="deskripsi" class="form-label">Kategori aset</label>
+                        <select name="" class="form-select" id="kategori" onchange="pilihKategoriAset()">
+                            <option value="0">pilih kategori aset</option>
+                            <option value="1">elektronik</option>
+                            <option value="2">kendaraan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="deskripsi" class="form-label">deskripsi aset</label>
+                        <input type="text" id="deskripsi" class="form-control" name="deskripsiAset"
+                            placeholder="masukan deskripsi singkat" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
                         <label for="jumlah" class="form-label">jumlah aset</label>
                         <input type="number" id="jumlah" class="form-control" name="jumlahAset"
                             placeholder="masukan jumlah aset yang akan diinput (angka)" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="kerusakan" class="form-label">kerusakan</label>
+                        <input type="number" id="kerusakan" class="form-control" name="kerusakanAset"
+                            placeholder="0% - 100%" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="usia" class="form-label">usia</label>
+                        <input type="number" id="usia" class="form-control" name="usiaAset"
+                            placeholder="satuan tahun" required />
+                    </div>
+                </div>
+                {{-- !kategori kendaraan --}}
+                <div class="row d-none" id="divKendaraan">
+                    <div class="col mb-3">
+                        <label for="jarakTempuh" class="form-label">jarak tempuh</label>
+                        <input type="number" id="jarakTempuh" class="form-control" name="jarakTempuh"
+                            placeholder="satuan KM"  />
+                    </div>
+                </div>
+                {{-- !/kategori kendaraan --}}
+                {{-- !kategori elektronik --}}
+                <div class="row d-none" id="divElektronik">
+                    <div class="col mb-3">
+                        <label for="freakuensiService" class="form-label">frekuensi service</label>
+                        <input type="number" id="freakuensiService" class="form-control" name="freakuensiService"
+                            placeholder="0"  />
+                    </div>
+                </div>
+                {{-- !/kategori elektronik --}}
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="biaya" class="form-label">biaya maintenance aset</label>
+                        <input type="number" id="biaya" class="form-control" name="biayaMaintenanceAset"
+                            placeholder="satuan rupiah" required />
                     </div>
                 </div>
                 <div class="row">
@@ -123,20 +179,6 @@
                         <input type="file" id="fotoaset" class="form-control" name="fotoaset" required />
                     </div>
                 </div>
-                {{-- <div class="row">
-                    <div class="col mb-3">
-                        <label for="jenkel" class="form-label">Kategori Aset</label>
-                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
-                            <option value="0" hidden> pilih jenis Kategori aset</option>
-                            <option value="laki laki">elektronik</option>
-                            <option value="perempuan">alat tulis</option>
-                            <option value="perempuan">alat tulis</option>
-                            <option value="perempuan">alat tulis</option>
-                            <option value="perempuan">alat tulis</option>
-                        </select>
-                    </div>
-                </div> --}}
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
@@ -193,6 +235,25 @@
 @endforelse
 {{-- modal untuk edit --}}
 
+<script>
+    function pilihKategoriAset() {
+        console.log('hello world');
+        var kategori = document.getElementById("kategori").value;
+        var x = document.getElementById("divKendaraan");
+        var y = document.getElementById("divElektronik");
+        if (kategori == 1) {
+            x.classList.add("d-none");
+            y.classList.remove("d-none");
+        } else if(kategori == 2) {
+            x.classList.remove("d-none");   
+            y.classList.add("d-none");   
+        }
+        else{
+            x.classList.add("d-none");
+            y.classList.add("d-none");
+        }
+    }
+</script>
 @endsection
 @if (count($aset))
 @push('page-js')
