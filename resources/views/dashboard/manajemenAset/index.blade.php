@@ -170,7 +170,7 @@
                     <div class="col mb-3">
                         <label for="biaya" class="form-label">biaya maintenance aset</label>
                         <input type="number" id="biaya" class="form-control" name="biayaMaintenanceAset"
-                            placeholder="satuan rupiah" required />
+                            placeholder="satuan rupiah" />
                     </div>
                 </div>
                 <div class="row">
