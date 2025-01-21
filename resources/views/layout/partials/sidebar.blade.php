@@ -30,7 +30,7 @@
                 <div>Data Aset</div>
             </a>
         </li>
-         <li class="menu-item {{ (Request::RouteIs('manajemen*')) ? 'active open' : '' }}">
+        <li class="menu-item {{ (Request::RouteIs('manajemen*')) ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-transfer"></i>
                 <div>Peminjaman & pengembalian Aset</div>
@@ -45,6 +45,25 @@
                 <li class="menu-item {{ (Request::RouteIs('manajemenPengembalian.*')) ? 'active' : '' }}">
                     <a href="{{ route('manajemenPengembalian.index') }}" class="menu-link">
                         <div>Pengembalian</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-analyse"></i>
+                <div>Prediksi Kondisi Aset</div>
+            </a>
+        
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Hasil Prediksi Kondisi Aset</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Kriteria</div>
                     </a>
                 </li>
             </ul>

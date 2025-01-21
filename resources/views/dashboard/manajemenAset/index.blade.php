@@ -160,9 +160,9 @@
                 {{-- !kategori elektronik --}}
                 <div class="row d-none" id="divElektronik">
                     <div class="col mb-3">
-                        <label for="freakuensiService" class="form-label">frekuensi service</label>
-                        <input type="number" id="freakuensiService" class="form-control" name="freakuensiService"
-                            placeholder="0"  />
+                        <label for="freakuensiPemakaian" class="form-label">frekuensi Pemakaian</label>
+                        <input type="number" id="freakuensiPemakaian" class="form-control" name="freakuensiPemakaian"
+                            placeholder="frekuensi pemakaian jam per hari"  />
                     </div>
                 </div>
                 {{-- !/kategori elektronik --}}
