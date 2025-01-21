@@ -49,20 +49,19 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item ">
+        <li class="menu-item {{ (Request::RouteIs('prediksi*')) ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-analyse"></i>
                 <div>Prediksi Kondisi Aset</div>
             </a>
-        
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="#" class="menu-link">
                         <div>Hasil Prediksi Kondisi Aset</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ (Request::RouteIs('prediksi.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.kriteria.index') }}" class="menu-link">
                         <div>Kriteria</div>
                     </a>
                 </li>

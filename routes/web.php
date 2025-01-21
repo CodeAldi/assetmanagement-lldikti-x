@@ -4,6 +4,7 @@ use App\Http\Controllers\AjukanPeminjamanAsetController;
 use App\Http\Controllers\AjukanPengembalianController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenPeminjamanAsetController;
 use App\Http\Controllers\PersetujuanKabagController;
@@ -41,6 +42,10 @@ Route::controller(ManajemenPeminjamanAsetController::class)->middleware(['auth',
     Route::post('dashboard/manajemen-peminjaman/{id}/ditolak','tolak')->name('manajemenPeminjamanAset.ditolak');
     Route::get('dashboard/manajemen-pengembalian/index', 'indexpengembalian')->name('manajemenPengembalian.index');
     Route::post('dashboard/manajemen-pengembalian/{id}/konfirmasipengembalian', 'konfirmasipengembalian')->name('manajemenPengembalian.konfirmasipengembalian');
+});
+
+Route::controller(KriteriaController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
+    Route::get('dashboard/prediksi-kondisi-aset/kriteria/index','index')->name('prediksi.kriteria.index');
 });
 
 Route::controller(AjukanPeminjamanAsetController::class)->middleware(['auth','role:peminjam'])->group(function(){
