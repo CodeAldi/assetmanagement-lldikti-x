@@ -8,6 +8,7 @@ use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenPeminjamanAsetController;
 use App\Http\Controllers\PersetujuanKabagController;
+use App\Http\Controllers\PrediksiKondisiAsetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,12 @@ Route::controller(ManajemenPeminjamanAsetController::class)->middleware(['auth',
 
 Route::controller(KriteriaController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('dashboard/prediksi-kondisi-aset/kriteria/index','index')->name('prediksi.kriteria.index');
+});
+
+Route::controller(PrediksiKondisiAsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
+    Route::get('dashboard/prediksi-kondisi-aset/tabel-alternatif/index','indexAlternatif')->name('prediksi.alternatif.index');
+    Route::get('dashboard/prediksi-kondisi-aset/tabel-nilai-kriteria/index','indexNilaiKriteria')->name('prediksi.nilaiKriteria.index');
+    Route::get('dashboard/prediksi-kondisi-aset/hasil-akhir/index','index')->name('prediksi.hasilAkhir.index');
 });
 
 Route::controller(AjukanPeminjamanAsetController::class)->middleware(['auth','role:peminjam'])->group(function(){

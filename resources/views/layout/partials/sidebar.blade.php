@@ -55,14 +55,29 @@
                 <div>Prediksi Kondisi Aset</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div>Hasil Prediksi Kondisi Aset</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ (Request::RouteIs('prediksi.*')) ? 'active' : '' }}">
+                <li class="menu-item {{ (Request::RouteIs('prediksi.kriteria.*')) ? 'active' : '' }}">
                     <a href="{{ route('prediksi.kriteria.index') }}" class="menu-link">
                         <div>Kriteria</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ (Request::RouteIs('prediksi.alternatif.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.alternatif.index') }}" class="menu-link">
+                        <div>alternatif</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ (Request::RouteIs('prediksi.nilaiKriteria.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.nilaiKriteria.index') }}" class="menu-link">
+                        <div>nilai kriteria</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ (Request::RouteIs('prediksi.kriteria.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.kriteria.index') }}" class="menu-link">
+                        <div>normalisasi</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ (Request::RouteIs('prediksi.hasilAkhir.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.hasilAkhir.index') }}" class="menu-link">
+                        <div>Hasil Prediksi Kondisi Aset</div>
                     </a>
                 </li>
             </ul>
