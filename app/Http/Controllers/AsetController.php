@@ -46,6 +46,7 @@ class AsetController extends Controller
                 $asetElektronik->usia = $request->usia;
                 $asetElektronik->freakuensiPemakaian = $request->freakuensiPemakaian;
                 $asetElektronik->biaya_service = $request->biaya_service;
+                $asetElektronik->save();
             }elseif ($request->kategori == '2'){
                 $aset = new Aset();
                 $aset->nama = $request->namaAset;
@@ -61,16 +62,16 @@ class AsetController extends Controller
         return back();
     }
     function destroy(Aset $aset){
-        if ($aset->kategori == 'elektronik') {
-            $asetElektronik = asetElektronik::where('aset_id',$aset->id)->get();
-            $asetElektronik->destroy();
-        }else{
-            $asetKendaraan = asetKendaraan::where('aset_id',$aset->id)->get();
-            $asetKendaraan->destroy();
-        }
+        // if ($aset->kategori == 'elektronik') {
+        //     $asetElektronik = asetElektronik::where('aset_id',$aset->id)->get();
+        //     $asetElektronik->delete();
+        // }else{
+        //     $asetKendaraan = asetKendaraan::where('aset_id',$aset->id)->get();
+        //     $asetKendaraan->delete();
+        // }
         $path = $aset->foto;
         Storage::delete($path);
-        $aset->destroy();
+        $aset->delete();
         return back();
     }
 }
