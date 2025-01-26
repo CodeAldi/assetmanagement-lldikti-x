@@ -8,7 +8,6 @@
 @endpush
 @section('content')
 <div class="container">
-
     <div class="card shadow">
         <div class="card-header row">
             <h5 class="card-title col-8 mt-3">
@@ -22,11 +21,9 @@
     </div>
 </div>
 <div class="container mt-2">
-
-    <!-- Basic Bootstrap Table -->
     <div class="card">
         <h5 class="card-header">Tabel list aset</h5>
-        <div class="table-responsive text-nowrap card-body h-100">
+        <div class="table-responsive text-wrap card-body">
             <table class="table" id="dataAset">
                 <thead>
                     <tr>
@@ -50,17 +47,14 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <button class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalShow{{ $item->id }}" data-><i
-                                            class="bx bx-show-alt me-1"></i>
-                                        Lihat</button>
-                                    <a class="dropdown-item btn btn-warning text-white" ><i
-                                            class="bx bx-edit-alt me-1"></i>
-                                        Edit</a>
-                                        <form action="{{ route('aset.destroy',['aset'=>$item]) }}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button class="dropdown-item btn btn-danger"><i class="bx bx-trash me-1"></i>Delete</button>
-                                        </form>
+                                    <button class="dropdown-item btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalShow{{ $item->id }}" data-><i
+                                            class="bx bx-show-alt me-1"></i>Lihat
+                                    </button>
+                                    <form action="{{ route('aset.destroy',['aset'=>$item]) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="dropdown-item btn btn-danger mb-1"><i class="bx bx-trash me-1"></i>Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </td>

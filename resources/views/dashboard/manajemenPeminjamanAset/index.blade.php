@@ -8,22 +8,15 @@
 @endpush
 @section('content')
 <div class="container">
-
     <div class="card shadow">
         <div class="card-header row">
             <h5 class="card-title col-8 mt-3">
                 Halo, selamat datang di Sistem Manajemen Peminjaman Aset !
             </h5>
         </div>
-        {{-- <div class="card-body">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo modi voluptatibus assumenda vero, totam
-            et!
-        </div> --}}
     </div>
 </div>
 <div class="container mt-2">
-
-    <!-- Basic Bootstrap Table -->
     <div class="card">
         <h5 class="card-header">Tabel list pengajuan peminjam aset</h5>
         <div class="table-responsive text-wrap card-body">

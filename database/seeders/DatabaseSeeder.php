@@ -42,51 +42,64 @@ class DatabaseSeeder extends Seeder
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
             'jenis_kriteria' => 'c',// cost atau benefit
             'bobot_kriteria' => '0.3',
+            'simbol_kriteria' => 'c1',
         ], [
             'nama_kriteria' => 'usia',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c2',
         ], [
             'nama_kriteria' => 'frekuensi pemakaian',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
             'jenis_kriteria' => 'b', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c3',
+
         ], [
             'nama_kriteria' => 'Biaya Maintenance',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c4',
+
         ], [
             'nama_kriteria' => 'Feedback Peminjaman',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
             'jenis_kriteria' => 'b', // cost atau benefit
             'bobot_kriteria' => '0.1',
+            'simbol_kriteria' => 'c5',
+
         ], [
             'nama_kriteria' => 'tingkat kerusakan',
             'kriteria_kategori_aset' => 'k', // !elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.3',
+            'simbol_kriteria' => 'c1',
         ], [
             'nama_kriteria' => 'usia',
             'kriteria_kategori_aset' => 'k', // elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c2',
         ], [
             'nama_kriteria' => 'jarak tempuh',
             'kriteria_kategori_aset' => 'k', // elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c3',
         ], [
             'nama_kriteria' => 'Biaya Maintenance',
             'kriteria_kategori_aset' => 'k', // elektronik atau kendaraan
             'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
+            'simbol_kriteria' => 'c4',
         ], [
             'nama_kriteria' => 'Feedback Peminjaman',
             'kriteria_kategori_aset' => 'k', // elektronik atau kendaraan
             'jenis_kriteria' => 'b', // cost atau benefit
             'bobot_kriteria' => '0.1',
+            'simbol_kriteria' => 'c5',
         ]
     ]);
     }

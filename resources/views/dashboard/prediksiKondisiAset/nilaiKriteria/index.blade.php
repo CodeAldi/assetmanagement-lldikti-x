@@ -1,62 +1,84 @@
 @extends('layout.main-fluid')
 @section('content')
-    {{-- ! tabel nilai kriteria ! --}}
-    <div class="container mt-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">tabel nilai kriteria</h5>
-                <div class="table-responsive text-nowrap">
-                    <table class="table" id="dataAset">
-                        <thead>
+<div class="container mt-2">
+    <button class="btn btn-primary">Generate tabel nilai alternatif</button>
+</div>
+<div class="container mt-2">
+    <div class="card h-50">
+        <div class="card-body">generate tabel nilai alternatif</div>
+    </div>
+</div>
+{{-- ! elektronik ! --}}
+<div class="container mt-2">
+    <div class="card">
+        <h5 class="card-header">tabel nilai alternatif aset elektronik</h5>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="text-center align-middle">alternatif</th>
+                            <th colspan="5" class="text-center">kriteria</th>
+                        </tr>
+                        <tr>
+                            <th>C1</th>
+                            <th>C2</th>
+                            <th>C3</th>
+                            <th>C4</th>
+                            <th>C5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($alternatif as $item)
+                            @if ($item->aset->kategori == 'elektronik')
                             <tr>
-                                <th>no</th>
-                                <th>nama alternatif</th>
-                                <th>nama kriteria</th>
-                                <th>nilai</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-                            @forelse ($alternatif as $item)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama_alternatif }}</td>
-                                <td>
-                                    <table class="table">
-                                        @forelse ($kriteria as $item)
-                                        <tr>
-                                            <td>{{ $item->nama_kriteria }}</td>
-                                        </tr>
-                                        @empty
-                                        @endforelse
-                                    </table>
-                                </td>
-                                <td>
-                                    <table class="table">
-                                        <tr>
-                                            <td>10%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 tahun</td>
-                                        </tr>
-                                        <tr>
-                                            <td>50 km</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rp.1.000.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                        </tr>
-                                    </table>
-                                </td>
                             </tr>
-                            @empty
-    
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                            @endif
+                        @empty
+
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+{{-- ! kendaraan ! --}}
+<div class="container mt-2">
+    <div class="card">
+        <h5 class="card-header">tabel nilai alternatif aset kendaraan</h5>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="text-center align-middle">alternatif</th>
+                            <th colspan="5" class="text-center">kriteria</th>
+                        </tr>
+                        <tr>
+                            <th>C1</th>
+                            <th>C2</th>
+                            <th>C3</th>
+                            <th>C4</th>
+                            <th>C5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($alternatif as $item)
+                            @if ($item->aset->kategori == 'kendaraan')
+                            <tr>
+                                <td>{{ $item->nama_alternatif }}</td>
+                            </tr>
+                            @endif
+                        @empty
+
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

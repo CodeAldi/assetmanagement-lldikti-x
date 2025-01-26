@@ -17,6 +17,7 @@ return new class extends Migration
             $table->char('kriteria_kategori_aset');
             $table->char('jenis_kriteria');
             $table->float('bobot_kriteria');
+            $table->string('simbol_kriteria');
             $table->timestamps();
         });
     }

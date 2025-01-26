@@ -13,11 +13,6 @@ class PrediksiKondisiAsetController extends Controller
         $kriteria = kriteria::where('kriteria_kategori_aset','LIKE','k')->get();
         return view('dashboard.prediksiKondisiAset.hasilAkhir.index')->with('alternatif',$alternatif)->with('kriteria',$kriteria);
     }
-    function indexNilaiKriteria() {
-        $alternatif = Alternatif::all();
-        $kriteria = kriteria::where('kriteria_kategori_aset', 'LIKE', 'k')->get();
-        return view('dashboard.prediksiKondisiAset.nilaiKriteria.index')->with('alternatif', $alternatif)->with('kriteria', $kriteria);
-    }
     function indexNormalisasi() {
         $alternatif = Alternatif::all();
     }

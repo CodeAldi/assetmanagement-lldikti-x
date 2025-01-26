@@ -11,6 +11,7 @@
                                 <th>nama</th>
                                 <th>jenis kriteria</th>
                                 <th>bobot kriteria</th>
+                                <th>simbol kriteria</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -24,6 +25,7 @@
                                             Benefit
                                         @endif</td>
                                         <td>{{ $item->bobot_kriteria }}</td>
+                                        <td class="text-uppercase">{{ $item->simbol_kriteria }}</td>
                                     </tr>
                                 @else
                                 @endif
@@ -46,6 +48,7 @@
                                 <th>nama</th>
                                 <th>jenis kriteria</th>
                                 <th>bobot kriteria</th>
+                                <th>simbol kriteria</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -59,6 +62,7 @@
                                     Benefit
                                     @endif</td>
                                 <td>{{ $item->bobot_kriteria }}</td>
+                                <td class="text-uppercase">{{ $item->simbol_kriteria }}</td>
                             </tr>
                             @else
                             @endif
