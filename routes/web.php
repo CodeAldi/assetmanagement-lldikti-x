@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjukanPeminjamanAsetController;
 use App\Http\Controllers\AjukanPengembalianController;
+use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KriteriaController;
@@ -49,9 +50,11 @@ Route::controller(ManajemenPeminjamanAsetController::class)->middleware(['auth',
 Route::controller(KriteriaController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('dashboard/prediksi-kondisi-aset/kriteria/index','index')->name('prediksi.kriteria.index');
 });
-
+Route::controller(AlternatifController::class)->middleware(['auth','role:pegawai tu'])->group(function(){
+    Route::get('dashboard/prediksi-kondisi-aset/tabel-alternatif/index', 'index')->name('prediksi.alternatif.index');
+    Route::post('dashboard/prediksi-kondisi-aset/tabel-alternatif/store','store')->name('prediksi.alternatif.store');
+});
 Route::controller(PrediksiKondisiAsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
-    Route::get('dashboard/prediksi-kondisi-aset/tabel-alternatif/index','indexAlternatif')->name('prediksi.alternatif.index');
     Route::get('dashboard/prediksi-kondisi-aset/tabel-nilai-kriteria/index','indexNilaiKriteria')->name('prediksi.nilaiKriteria.index');
     Route::get('dashboard/prediksi-kondisi-aset/hasil-akhir/index','index')->name('prediksi.hasilAkhir.index');
 });

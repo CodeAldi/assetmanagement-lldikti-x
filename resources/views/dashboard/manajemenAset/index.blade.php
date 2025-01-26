@@ -19,10 +19,6 @@
                 Tambah Aset
             </button>
         </div>
-        {{-- <div class="card-body">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo modi voluptatibus assumenda vero, totam
-            et!
-        </div> --}}
     </div>
 </div>
 <div class="container mt-2">
