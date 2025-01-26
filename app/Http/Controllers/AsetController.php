@@ -62,13 +62,6 @@ class AsetController extends Controller
         return back();
     }
     function destroy(Aset $aset){
-        // if ($aset->kategori == 'elektronik') {
-        //     $asetElektronik = asetElektronik::where('aset_id',$aset->id)->get();
-        //     $asetElektronik->delete();
-        // }else{
-        //     $asetKendaraan = asetKendaraan::where('aset_id',$aset->id)->get();
-        //     $asetKendaraan->delete();
-        // }
         $path = $aset->foto;
         Storage::delete($path);
         $aset->delete();
