@@ -30,13 +30,13 @@
     <!-- Basic Bootstrap Table -->
     <div class="card">
         <h5 class="card-header">Tabel list aset</h5>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive text-nowrap card-body h-100">
             <table class="table" id="dataAset">
                 <thead>
                     <tr>
                         <th>nama</th>
                         <th>jumlah</th>
-                        <th>kondisi</th>
+                        <th>kategori</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -45,7 +45,8 @@
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $item->nama }}</strong></td>
                         <td>{{ $item->jumlah }}</td>
-                        <td><span class="badge bg-label-primary me-1">{{ $item->kondisi }}</span></td>
+                        <td>{{ $item->kategori }}</td>
+                        {{-- <td><span class="badge bg-label-primary me-1">{{ $item->kategori }}</span></td> --}}
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -59,8 +60,11 @@
                                     <a class="dropdown-item btn btn-warning text-white" ><i
                                             class="bx bx-edit-alt me-1"></i>
                                         Edit</a>
-                                    <a class="dropdown-item btn btn-danger text-white" ><i class="bx bx-trash me-1"></i>
-                                        Delete</a>
+                                        <form action="{{ route('aset.destroy',['aset'=>$item]) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="dropdown-item btn btn-danger"><i class="bx bx-trash me-1"></i>Delete</button>
+                                        </form>
                                 </div>
                             </div>
                         </td>
@@ -113,7 +117,7 @@
                 <div class="row">
                     <div class="col mb-3">
                         <label for="deskripsi" class="form-label">Kategori aset</label>
-                        <select name="" class="form-select" id="kategori" onchange="pilihKategoriAset()">
+                        <select name="kategori" class="form-select" id="kategori" onchange="pilihKategoriAset()">
                             <option value="0">pilih kategori aset</option>
                             <option value="1">elektronik</option>
                             <option value="2">kendaraan</option>
@@ -123,7 +127,7 @@
                 <div class="row">
                     <div class="col mb-3">
                         <label for="deskripsi" class="form-label">deskripsi aset</label>
-                        <input type="text" id="deskripsi" class="form-control" name="deskripsiAset"
+                        <input type="text" id="deskripsi" class="form-control" name="deskripsi"
                             placeholder="masukan deskripsi singkat" required />
                     </div>
                 </div>
@@ -137,14 +141,14 @@
                 <div class="row">
                     <div class="col mb-3">
                         <label for="kerusakan" class="form-label">kerusakan</label>
-                        <input type="number" id="kerusakan" class="form-control" name="kerusakanAset"
+                        <input type="number" id="kerusakan" class="form-control" name="kerusakan"
                             placeholder="0% - 100%" required />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
                         <label for="usia" class="form-label">usia</label>
-                        <input type="number" id="usia" class="form-control" name="usiaAset"
+                        <input type="number" id="usia" class="form-control" name="usia"
                             placeholder="satuan tahun" required />
                     </div>
                 </div>
@@ -169,7 +173,7 @@
                 <div class="row">
                     <div class="col mb-3">
                         <label for="biaya" class="form-label">biaya maintenance aset</label>
-                        <input type="number" id="biaya" class="form-control" name="biayaMaintenanceAset"
+                        <input type="number" id="biaya" class="form-control" name="biaya_service"
                             placeholder="satuan rupiah" />
                     </div>
                 </div>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('aset_id')->constrained('aset')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('kerusakan');
             $table->integer('usia');
-            $table->integer('freuensi_service');
+            $table->integer('freakuensiPemakaian');
             $table->integer('biaya_service');
 
             $table->timestamps();

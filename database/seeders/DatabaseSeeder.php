@@ -17,24 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('users')->insert([
-        //     'name' => 'pegawai TU 1',
-        //     'email' => 'pegawaitu@contoh.com',
-        //     'password' => Hash::make('12345678'),
-        //     'role' => UserRole::pegawaitu,
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'Kepala Bagian',
-        //     'email' => 'kabag@contoh.com',
-        //     'password' => Hash::make('12345678'),
-        //     'role' => UserRole::kabag,
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'peminjam 1',
-        //     'email' => 'peminjam1@contoh.com',
-        //     'password' => Hash::make('12345678'),
-        //     'role' => UserRole::peminjam,
-        // ]);
+        // !! seeding data user pegawai TU, kepala bagian, and peminjam
+        DB::table('users')->insert([
+            'name' => 'pegawai TU 1',
+            'email' => 'pegawaitu@contoh.com',
+            'password' => Hash::make('12345678'),
+            'role' => UserRole::pegawaitu,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Kepala Bagian',
+            'email' => 'kabag@contoh.com',
+            'password' => Hash::make('12345678'),
+            'role' => UserRole::kabag,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'peminjam 1',
+            'email' => 'peminjam1@contoh.com',
+            'password' => Hash::make('12345678'),
+            'role' => UserRole::peminjam,
+        ]);
+        // !! seeding kriteria table
         DB::table('kriteria')->insert([[
             'nama_kriteria' => 'tingkat kerusakan',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
