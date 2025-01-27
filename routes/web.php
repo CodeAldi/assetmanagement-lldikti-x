@@ -66,6 +66,7 @@ Route::controller(NormalisasiController::class)->middleware(['auth','role:pegawa
 });
 Route::controller(PrediksiKondisiAsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('dashboard/prediksi-kondisi-aset/hasil-akhir/index','index')->name('prediksi.hasilAkhir.index');
+    Route::post('dashboard/prediksi-kondisi-aset/hasil-akhir/store','store')->name('prediksi.hasilAkhir.store');
 });
 
 Route::controller(AjukanPeminjamanAsetController::class)->middleware(['auth','role:peminjam'])->group(function(){
