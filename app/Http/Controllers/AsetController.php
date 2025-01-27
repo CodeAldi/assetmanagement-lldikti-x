@@ -57,6 +57,12 @@ class AsetController extends Controller
                 $aset->foto = $path;
                 $aset->save();
                 $asetKendaraan = new asetKendaraan();
+                $asetKendaraan->aset_id = $aset->id;
+                $asetKendaraan->kerusakan = $request->kerusakan;
+                $asetKendaraan->usia = $request->usia;
+                $asetKendaraan->jarak_tempuh = $request->jarakTempuh;
+                $asetKendaraan->biaya_perawatan = $request->biaya_service;
+                $asetKendaraan->save();
             }
         }
         return back();

@@ -1,7 +1,10 @@
 @extends('layout.main-fluid')
 @section('content')
 <div class="container mt-2">
-    <button class="btn btn-primary">Generate tabel nilai alternatif</button>
+    <form action="{{ route('prediksi.nilaiKriteria.store') }}" method="post">
+        @csrf
+        <button class="btn btn-primary">Generate tabel nilai alternatif</button>
+    </form>
 </div>
 <div class="container mt-2">
     <div class="card h-50">
@@ -33,6 +36,12 @@
                             @if ($item->aset->kategori == 'elektronik')
                             <tr>
                                 <td>{{ $item->nama_alternatif }}</td>
+                                @forelse ($nilaiKriteria as $itemNilaiKriteria)
+                                    @if ($itemNilaiKriteria->alternatif_id == $item->id)
+                                        <td>{{ $itemNilaiKriteria->bobot_kriteria }}</td>
+                                    @endif
+                                @empty
+                                @endforelse
                             </tr>
                             @endif
                         @empty
@@ -69,10 +78,16 @@
                             @if ($item->aset->kategori == 'kendaraan')
                             <tr>
                                 <td>{{ $item->nama_alternatif }}</td>
+                                @forelse ($nilaiKriteria as $itemNilaiKriteria)
+                                    @if ($itemNilaiKriteria->alternatif_id == $item->id)
+                                    <td>{{ $itemNilaiKriteria->bobot_kriteria }}</td>
+                                    @endif
+                                @empty
+                                @endforelse
                             </tr>
                             @endif
                         @empty
-
+                        
                         @endforelse
                     </tbody>
                 </table>

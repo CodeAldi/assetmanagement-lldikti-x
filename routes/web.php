@@ -57,6 +57,7 @@ Route::controller(AlternatifController::class)->middleware(['auth','role:pegawai
 });
 Route::controller(nilaiKriteriaController::class)->middleware(['auth','role:pegawai tu'])->group(function(){
     Route::get('dashboard/prediksi-kondisi-aset/tabel-nilai-kriteria/index', 'index')->name('prediksi.nilaiKriteria.index');
+    Route::post('dashboard/prediksi-kondisi-aset/tabel-nilai-kriteria/store', 'store')->name('prediksi.nilaiKriteria.store');
 });
 Route::controller(PrediksiKondisiAsetController::class)->middleware(['auth', 'role:pegawai tu'])->group(function(){
     Route::get('dashboard/prediksi-kondisi-aset/hasil-akhir/index','index')->name('prediksi.hasilAkhir.index');

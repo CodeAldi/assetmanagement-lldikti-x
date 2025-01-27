@@ -21,4 +21,23 @@ class Aset extends Model
     {
         return $this->hasOne(Alternatif::class);
     }
+
+    /**
+     * Get the elektronik associated with the Aset
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function elektronik(): HasOne
+    {
+        return $this->hasOne(asetElektronik::class);
+    }
+    /**
+     * Get the kendaraan associated with the Aset
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function kendaraan(): HasOne
+    {
+        return $this->hasOne(asetKendaraan::class);
+    }
 }
