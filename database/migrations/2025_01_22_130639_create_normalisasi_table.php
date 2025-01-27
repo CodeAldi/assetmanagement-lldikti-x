@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alternatif_id')->constrained('alternatif')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('kriteria_id')->constrained('kriteria')->onUpdate('cascade')->onDelete('cascade');
+            $table->float('nilai_normalisasi');
             $table->timestamps();
         });
     }
