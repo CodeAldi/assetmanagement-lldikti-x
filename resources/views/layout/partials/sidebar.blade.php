@@ -70,8 +70,8 @@
                         <div>nilai kriteria</div>
                     </a>
                 </li>
-                <li class="menu-item {{ (Request::RouteIs('prediksi.kriteria.*')) ? 'active' : '' }}">
-                    <a href="{{ route('prediksi.kriteria.index') }}" class="menu-link">
+                <li class="menu-item {{ (Request::RouteIs('prediksi.normalisasi.*')) ? 'active' : '' }}">
+                    <a href="{{ route('prediksi.normalisasi.index') }}" class="menu-link">
                         <div>normalisasi</div>
                     </a>
                 </li>
