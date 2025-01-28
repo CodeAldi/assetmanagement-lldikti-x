@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Aset extends Model
 {
@@ -39,5 +40,15 @@ class Aset extends Model
     public function kendaraan(): HasOne
     {
         return $this->hasOne(asetKendaraan::class);
+    }
+
+    /**
+     * Get all of the hasilAkhir for the Aset
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function hasilAkhir(): HasManyThrough
+    {
+        return $this->hasManyThrough(hasilAkhir::class, Alternatif::class);
     }
 }

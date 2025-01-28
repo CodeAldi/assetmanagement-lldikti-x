@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Aset;
 use App\Models\asetElektronik;
 use App\Models\asetKendaraan;
+use App\Models\HasilAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

@@ -28,6 +28,7 @@
                 <thead>
                     <tr>
                         <th>nama</th>
+                        <th>Kondisi</th>
                         <th>jumlah</th>
                         <th>kategori</th>
                         <th>Actions</th>
@@ -37,6 +38,9 @@
                     @forelse ($aset as $item)
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $item->nama }}</strong></td>
+                            @if (count($item->hasilAkhir) > 0)
+                            <td>{{ $item->hasilAkhir[0]->keterangan }}</td>
+                            @endif
                         <td>{{ $item->jumlah }}</td>
                         <td>{{ $item->kategori }}</td>
                         {{-- <td><span class="badge bg-label-primary me-1">{{ $item->kategori }}</span></td> --}}
