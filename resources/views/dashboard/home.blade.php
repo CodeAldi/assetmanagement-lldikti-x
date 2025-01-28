@@ -28,11 +28,12 @@
 
 <div class="row justify-content-between mt-2">
     @forelse ($aset as $item)
-    <div class="col">
+    <div class="col-4">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $item->nama }}</h5>
                 <p class="card-text">jumlah item : {{ $item->jumlah }}</p>
+                <p class="card-text">kondisi : {{ $item->hasilAkhir[0]->keterangan }}</p>
                 <img src="{{ asset($item->foto) }}" alt="" class="mx-auto img-thumbnail">
             </div>
         </div>
