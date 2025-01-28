@@ -5,6 +5,7 @@ use App\Http\Controllers\AjukanPengembalianController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KabagLihatAsetController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenPeminjamanAsetController;
@@ -79,7 +80,10 @@ Route::controller(AjukanPengembalianController::class)->middleware(['auth','role
 });
 
 Route::controller(PersetujuanKabagController::class)->middleware(['auth','role:kepala bagian'])->group(function(){
-    Route::get('dashboard/kabag/menuggu-persetujuan/index','index')->name('kabag.index');
-    Route::post('dashboard/kabag/menuggu-persetujuan/{id}/disetujui', 'setujui')->name('kabag.setuju');
-    Route::post('dashboard/kabag/menuggu-persetujuan/{id}/ditolak', 'tolak')->name('kabag.tolak');
+    Route::get('dashboard/kabag/menuggu-persetujuan/index','index')->name('kabag.persetujuan.index');
+    Route::post('dashboard/kabag/menuggu-persetujuan/{id}/disetujui', 'setujui')->name('kabag.persetujuan.setuju');
+    Route::post('dashboard/kabag/menuggu-persetujuan/{id}/ditolak', 'tolak')->name('kabag.persetujuan.tolak');
+});
+Route::controller(KabagLihatAsetController::class)->middleware(['auth','role:kepala bagian'])->group(function(){
+    Route::get('dashboard/kabag/aset/index','index')->name('kabag.aset.index');
 });

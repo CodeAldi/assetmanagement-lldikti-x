@@ -58,14 +58,14 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <form action="{{ route('kabag.setuju',$item->id) }}"
+                                    <form action="{{ route('kabag.persetujuan.setuju',$item->id) }}"
                                         method="post">
                                         @csrf
                                         <button type="submit" class="dropdown-item btn btn-success mb-1 text-white"><i
                                                 class="bx bx-check-circle me-1"></i>
                                             Setujui</button>
                                     </form>
-                                    <form action="{{ route('kabag.tolak',$item->id) }}"
+                                    <form action="{{ route('kabag.persetujuan.tolak',$item->id) }}"
                                         method="post">
                                         @csrf
                                         <button type="submit" class="dropdown-item btn btn-danger mb-1 text-white"><i

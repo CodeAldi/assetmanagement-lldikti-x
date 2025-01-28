@@ -82,12 +82,12 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item">
+        {{-- <li class="menu-item">
             <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-envelope"></i>
                 <div>Surat Sanksi</div>
             </a>
-        </li>
+        </li> --}}
         @elseif (Auth()->user()->hasRole('peminjam'))
         {{--! user peminjam !--}}
         <li class="menu-item {{ (Request::RouteIs('ajukan.peminjaman*')) ? 'active' : '' }}">
@@ -104,10 +104,16 @@
         </li>
         @elseif (Auth()->user()->hasRole('kepala bagian'))
         {{--! user kepala bagian !--}}
-        <li class="menu-item {{ (Request::RouteIs('kabag.*')) ? 'active' : '' }}" >
-            <a href="{{ route('kabag.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <li class="menu-item {{ (Request::RouteIs('kabag.persetujuan.*')) ? 'active' : '' }}" >
+            <a href="{{ route('kabag.persetujuan.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-check-circle"></i>
                 <div>Konfirmasi Peminjaman Aset</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (Request::RouteIs('kabag.aset.*')) ? 'active' : '' }}" >
+            <a href="{{ route('kabag.aset.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-library"></i>
+                <div>Data Aset</div>
             </a>
         </li>
         @endif
