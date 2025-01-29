@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kriteria;
 use App\Models\Alternatif;
 use App\Models\HasilAkhir;
 use App\Models\Normalisasi;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PrediksiKondisiAsetController extends Controller
