@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alternatif_id')->constrained('alternatif')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('kriteria_id')->constrained('kriteria')->onUpdate('cascade')->onDelete('cascade');
-            $table->float('bobot_kriteria');
+            $table->float('bobot_kriteria',13,3);
             $table->timestamps();
         });
     }
