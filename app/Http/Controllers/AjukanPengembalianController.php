@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AjukanPeminjamanAset;
+use App\Models\FeedbackPengembalian;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,17 +22,18 @@ class AjukanPengembalianController extends Controller
             # code...
         }
         
-        // $phpdate =strtotime($datapinjam[0]->tanggal_mulai_pinjam);
-        // $mysqldate = date('Y-m-d H:i:s', $phpdate);
-        // $mysqldate2 = time();
-        // $datediff = round(($mysqldate2 - $phpdate) / (60 * 60 * 24));
-        // dd(now());
         return view('dashboard.ajukanPengembalianAset.index')->with('datapinjam',$datapinjam)->with('sisawaktu',$datediff);
     }
-    public function kembalikan($id) {
+    public function kembalikan(Request $request,$id) {
         $peminjaman = AjukanPeminjamanAset::find($id);
         $peminjaman->status = 'Pengajuan Pengembalian';
         $peminjaman->save();
+        
+        $feedbackPengembalian = new FeedbackPengembalian();
+        $feedbackPengembalian->aset_id = $peminjaman->id_aset;
+        $feedbackPengembalian->feedback = $request->feedback;
+        $feedbackPengembalian->nilai = $request->kepuasan;
+        $feedbackPengembalian->save();
         return back();
     }
 }

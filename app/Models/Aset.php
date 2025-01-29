@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -50,5 +51,14 @@ class Aset extends Model
     public function hasilAkhir(): HasManyThrough
     {
         return $this->hasManyThrough(hasilAkhir::class, Alternatif::class);
+    }
+    /**
+     * Get all of the feedbackPeminjaman for the Aset
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function feedbackPeminjaman(): HasMany
+    {
+        return $this->hasMany(FeedbackPengembalian::class);
     }
 }

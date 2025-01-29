@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use App\Models\NilaiKriteria;
 use App\Models\Normalisasi;
 use Illuminate\Http\Request;
+use App\Models\NilaiKriteria;
+use Illuminate\Support\Facades\DB;
 
 class NormalisasiController extends Controller
 {
@@ -16,6 +17,10 @@ class NormalisasiController extends Controller
     }
     function store() {
         $nilaiKriteria = NilaiKriteria::all();
+        $normalisasiCount = Normalisasi::count();
+        if ($normalisasiCount > 0) {
+            DB::table('normalisasi')->truncate();
+        }
         foreach ($nilaiKriteria as $key => $value) {
             if ($value->kriteria->kriteria_kategori_aset == 'e') {
                 $nilaiKriteriaElektronik[] = $value;
@@ -38,6 +43,9 @@ class NormalisasiController extends Controller
                     $normalisasi = new Normalisasi();
                     $normalisasi->alternatif_id = $valueIsi->alternatif_id;
                     $normalisasi->kriteria_id = $valueIsi->kriteria_id;
+                    if ($valueIsi->bobot_kriteria == 0) {
+                        dd('ketemu nol', $valueIsi);
+                    }
                     $normalisasi->nilai_normalisasi = $min[$valueIsi->kriteria_id] / $valueIsi->bobot_kriteria;
                     $normalisasi->save();
                 }else{

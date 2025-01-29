@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<div class="row justify-content-between mt-2">
+<div class="row justify-content-between mt-2 g-2">
     @forelse ($aset as $item)
     <div class="col-4">
         <div class="card">

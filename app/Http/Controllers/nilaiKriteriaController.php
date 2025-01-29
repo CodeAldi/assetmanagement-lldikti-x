@@ -52,7 +52,13 @@ class nilaiKriteriaController extends Controller
                         
                         case 'c5':
                             $nilaiKriteria->kriteria_id = $valueElektronik->id;
-                            $nilaiKriteria->bobot_kriteria = 5; 
+                            if (count($value->aset->feedbackPeminjaman) == 0) {
+                                $nilaiKriteria->bobot_kriteria = 5; 
+                            }
+                            else {
+                                // dd($value->aset->feedbackPeminjaman[0]->nilai);
+                                $nilaiKriteria->bobot_kriteria = $value->aset->feedbackPeminjaman[0]->nilai;
+                            }
     
                             break;
                         

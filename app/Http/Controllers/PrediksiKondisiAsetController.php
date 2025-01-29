@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kriteria;
 use App\Models\Alternatif;
 use App\Models\HasilAkhir;
-use App\Models\kriteria;
 use App\Models\Normalisasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrediksiKondisiAsetController extends Controller
 {
@@ -16,6 +17,9 @@ class PrediksiKondisiAsetController extends Controller
         return view('dashboard.prediksiKondisiAset.hasilAkhir.index')->with('alternatif',$alternatif)->with('hasilAkhir',$hasilAkhir);
     }
     function store() {
+        if (HasilAkhir::count() > 0) {
+            DB::table('hasil_akhir')->truncate();
+        }
         $normalisasi = Normalisasi::all()->groupBy('alternatif_id');
         foreach ($normalisasi as $key => $value) {
             $temp[$key] = 0;

@@ -54,11 +54,11 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <form action="{{ route('ajukan.pengembalian.pengajuan',$item->id) }}" method="post">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item btn btn-success mb-1 text-white"><i
-                                                class="bx bx-check-circle me-1"></i>
-                                            Ajukan pengembalian</button>
+                                    <button type="submit" class="dropdown-item btn btn-success mb-1 text-white" data-bs-toggle="modal" data-bs-target="#modalCreate"><i
+                                            class="bx bx-check-circle me-1"></i>
+                                        Ajukan pengembalian</button>
+                                    {{-- <form action="{{ route('ajukan.pengembalian.pengajuan',$item->id) }}" method="post">
+                                        @csrf --}}
                                     </form>
                                 </div>
                             </div>
@@ -79,31 +79,26 @@
 <!-- Modal untuk create -->
 <div class="modal fade" id="modalCreate" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <form class="modal-content" action="{{ route('aset.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="modal-content" action="{{ route('ajukan.pengembalian.pengajuan',$item->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
-                <h5 class="modal-title" id="modalCreateTitle">Tambah Data Aset</h5>
+                <h5 class="modal-title" id="modalCreateTitle">Form Feedback Pengembalian</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" id="nama" class="form-control" name="namaAset"
-                            placeholder="masukan nama aset" autofocus required />
+                        <label for="nama" class="form-label">Feedback Pengembalian</label>
+                        <input type="text" id="nama" class="form-control" name="feedback"
+                            placeholder="tuliskan pengalaman anda selama menggunakan aset, apakah sudah memenuhi kebutuhan peminjaman ?" autofocus required />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="jumlah" class="form-label">jumlah aset</label>
-                        <input type="number" id="jumlah" class="form-control" name="jumlahAset"
-                            placeholder="masukan jumlah aset yang akan diinput (angka)" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="fotoaset" class="form-label">foto aset</label>
-                        <input type="file" id="fotoaset" class="form-control" name="fotoaset" required />
+                        <label for="jumlah" class="form-label">tingkat kepuasan</label>
+                        <input type="number" id="jumlah" class="form-control" name="kepuasan"
+                            placeholder="1 = sangat tidak puas , 5 = sangat puas" min="1" max="5" required />
+                            <span class="form-text">1 = sangat tidak puas , 5 = sangat puas</span>
                     </div>
                 </div>
                 {{-- <div class="row">
