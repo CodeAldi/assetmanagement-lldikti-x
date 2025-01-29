@@ -19,10 +19,6 @@
                 Ajukan Peminjaman Aset
             </button>
         </div>
-        {{-- <div class="card-body">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo modi voluptatibus assumenda vero, totam
-            et!
-        </div> --}}
     </div>
 </div>
 <div class="container mt-2">
@@ -30,7 +26,8 @@
     <!-- Basic Bootstrap Table -->
     <div class="card">
         <h5 class="card-header">Tabel list pengajuan peminjaman aset</h5>
-        <div class="table-responsive text-nowrap">
+        
+        <div class="table-responsive text-nowrap card-body">
             <table class="table" id="dataAset">
                 <thead>
                     <tr>
@@ -74,21 +71,6 @@
     </div>
     <!--/ Basic Bootstrap Table -->
 
-    {{-- <div class="row">
-        @forelse ($aset as $item)
-        <div class="col-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item->nama }}</h5>
-                    <p class="card-text">jumlah item : {{ $item->jumlah }}</p>
-                    <img src="{{ asset($item->foto) }}" alt="" class="mx-auto img-thumbnail">
-                </div>
-            </div>
-        </div>
-        @empty
-
-        @endforelse
-    </div> --}}
 </div>
 <!-- Modal untuk create -->
 <div class="modal fade" id="modalCreate" tabindex="-1" aria-hidden="true">

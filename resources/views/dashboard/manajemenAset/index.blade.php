@@ -40,6 +40,8 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $item->nama }}</strong></td>
                             @if (count($item->hasilAkhir) > 0)
                             <td>{{ $item->hasilAkhir[0]->keterangan }}</td>
+                            @else
+                            <td>Prediksi saw belum dimulai</td>
                             @endif
                         <td>{{ $item->jumlah }}</td>
                         <td>{{ $item->kategori }}</td>
@@ -66,7 +68,7 @@
                         
                     @empty
                     <tr>
-                        <td colspan="4" class="bg-warning text-white text-center">data masih kosong</td>
+                        <td colspan="5" class="bg-warning text-white text-center">data masih kosong</td>
                     </tr>
                     @endforelse
                 </tbody>

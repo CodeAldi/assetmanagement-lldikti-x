@@ -30,6 +30,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/','LoginView')->name('loginView')->middleware('guest');
     Route::post('/login','login')->name('login')->middleware('guest');
     Route::get('/logout','logout')->name('logout')->middleware('auth');
+    Route::get('/register','registerView')->name('registerView')->middleware('guest');
+    Route::post('/register','register')->name('register')->middleware('guest');
 });
 
 Route::controller(DashboardController::class)->group(function(){
