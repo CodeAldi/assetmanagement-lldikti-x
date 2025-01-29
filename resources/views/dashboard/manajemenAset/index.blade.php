@@ -138,7 +138,7 @@
                     <div class="col mb-3">
                         <label for="kerusakan" class="form-label">kerusakan</label>
                         <input type="number" id="kerusakan" class="form-control" name="kerusakan"
-                            placeholder="0% - 100%" required />
+                            placeholder="0% - 100%" required min="1", max="100" />
                     </div>
                 </div>
                 <div class="row">
