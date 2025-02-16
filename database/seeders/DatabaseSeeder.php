@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         ], [
             'nama_kriteria' => 'frekuensi pemakaian',
             'kriteria_kategori_aset' => 'e', // elektronik atau kendaraan
-            'jenis_kriteria' => 'b', // cost atau benefit
+            'jenis_kriteria' => 'c', // cost atau benefit
             'bobot_kriteria' => '0.2',
             'simbol_kriteria' => 'c3',
 
